@@ -11,11 +11,11 @@ COPY ./target/aim.jar /app
 EXPOSE 8080
 
 # Set environment variables for database connection (optional)
-ENV DB_HOST=277707105062.dkr.ecr.ap-south-1.amazonaws.com/aimone-repo
+ENV DB_HOST=jdbc:mysql://aimdb.cvqg0iekc8d2.ap-south-1.rds.amazonaws.com/aim
 ENV DB_PORT=3306
-ENV DB_NAME=admin_oneaim
-ENV DB_USER=admin_oneaim
-ENV DB_PASSWORD=theoneaim03
+ENV DB_NAME=aim
+ENV DB_USER=root
+ENV DB_PASSWORD=password
 
 # Command to run the application
 CMD ["java", "-jar", "aim.jar"]
