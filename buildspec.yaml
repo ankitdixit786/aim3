@@ -9,10 +9,10 @@ phases:
       - mvn clean install
       - echo "Verifying JAR file exists..."
       - ls -lah target
-      - if [ ! -f target/aim.jar ]; then echo "JAR file not found! Exiting."; exit 1; fi
+      - if [ ! -f target/aimones.jar ]; then echo "JAR file not found! Exiting."; exit 1; fi
       - echo Logging in to Amazon ECR...
       - aws --version
-      - REPOSITORY_URI=180294199549.dkr.ecr.ap-south-1.amazonaws.com/aim:latest
+      - REPOSITORY_URI=277707105062.dkr.ecr.ap-south-1.amazonaws.com/aimones
       - echo $REPOSITORY_URI
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $REPOSITORY_URI
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
@@ -39,4 +39,4 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-    - target/aim.jar
+    - target/aimones.jar
