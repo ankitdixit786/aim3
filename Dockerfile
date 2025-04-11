@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the compiled Java application JAR file into the container
-COPY ./target/aim.jar /app
+COPY ./target/aimones.jar /app
 
 # Expose the port the Spring Boot application will run on
 EXPOSE 8080
@@ -18,4 +18,4 @@ ENV DB_USER=root
 ENV DB_PASSWORD=password
 
 # Command to run the application
-CMD ["java", "-jar", "aim.jar"]
+CMD ["java", "-jar", "aimones.jar"]
